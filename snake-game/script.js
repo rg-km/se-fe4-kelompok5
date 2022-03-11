@@ -1,6 +1,6 @@
 const CELL_SIZE = 20;
 // Soal no 1: Set canvas size menjadi 600
-const CANVAS_SIZE = 600;
+const CANVAS_SIZE = 400;
 const REDRAW_INTERVAL = 50;
 const WIDTH = CANVAS_SIZE / CELL_SIZE;
 const HEIGHT = CANVAS_SIZE / CELL_SIZE;
@@ -11,7 +11,7 @@ const DIRECTION = {
     DOWN: 3,
 }
 // Soal no 2: Pengaturan Speed (semakin kecil semakin cepat) ubah dari 150 ke 120
-const MOVE_INTERVAL = 120;
+const MOVE_INTERVAL = 100;
 
 function initPosition() {
     return {
@@ -271,8 +271,6 @@ document.addEventListener("keydown", function (event) {
 
 function initGame() {
     move(snake1);
-    move(snake2);
-    move(snake3);
 }
 
 initGame();
