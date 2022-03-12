@@ -10,8 +10,8 @@ const DIRECTION = {
     UP: 2,
     DOWN: 3,
 }
-// Soal no 2: Pengaturan Speed (semakin kecil semakin cepat) ubah dari 150 ke 120
-const MOVE_INTERVAL = 100;
+
+const MOVE_INTERVAL = 100; // Soal no 2: Pengaturan Speed (semakin kecil semakin cepat) ubah dari 150 ke 120
 
 function initPosition() {
     return {
@@ -41,6 +41,7 @@ function initSnake(color) {
         score: 0,
     }
 }
+
 let snake1 = initSnake("purple");
 let snake2 = initSnake("blue");
 // Soal no 6: add snake3
@@ -80,6 +81,7 @@ function drawScore(snake) {
 }
 
 function draw() {
+    console.log("makan");
     setInterval(function() {
         let snakeCanvas = document.getElementById("snakeBoard");
         let ctx = snakeCanvas.getContext("2d");
@@ -182,7 +184,7 @@ function checkCollision(snakes) {
     }
     if (isCollide) {
         // Soal no 5: Add game over audio:
-        var audio = new Audio('game-over.mp3');
+        const audio = new Audio('./assets/game-over.mp3');
         audio.play();
 
         alert("Game over");
@@ -274,3 +276,5 @@ function initGame() {
 }
 
 initGame();
+
+export default draw;

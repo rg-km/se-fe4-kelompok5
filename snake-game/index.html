@@ -5,19 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Snake Game</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./assets/style/css/main.css">
 </head>
-<body onload="draw();">
+<body>
     <h1>SNAKE GAME versi 1.0</h1>
-    <!-- Soal no 3: Tambahkan resource gambar untuk ditampilkan di canvas -->
-    <img id="apple" style="display: none;" width="20" height="20" src=".\assets\apple.png" alt="Apple">
-    <img id="heart" style="display: none;" width="20" height="20" src=".\assets\love.png" alt="Heart">
-    <!-- Soal no 1: Ubah nilai width dan height menjadi 600 pada element canvas:  -->
+    <img id="apple" style="display: none;" width="20" height="20" src=".\assets\image\apple.png" alt="Apple">
+    <img id="heart" style="display: none;" width="20" height="20" src=".\assets\image\love.png" alt="Heart">
     <canvas id="snakeBoard" width="400" height="500" style="border: 1px solid #000000;" ></canvas>
     <canvas id="score1Board" width="200" height="500" style="border:1px solid #000000;"></canvas>
     <canvas id="score2Board" width="100" height="100" style="border:1px solid #000000;"></canvas>
-    <!-- Soal no 6: Tambahkan elemen canvas untuk menampilkan player3:  -->
     <canvas id="score3Board" width="100" height="100" style="border:1px solid #000000;"></canvas>
-    <script src="script.js"></script>
+    <script src="./app.js" type="module"></script>
 </body>
 </html>
