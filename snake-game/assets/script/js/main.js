@@ -81,7 +81,6 @@ function drawScore(snake) {
 }
 
 function draw() {
-    console.log("makan");
     setInterval(function() {
         let snakeCanvas = document.getElementById("snakeBoard");
         let ctx = snakeCanvas.getContext("2d");
@@ -184,7 +183,7 @@ function checkCollision(snakes) {
     }
     if (isCollide) {
         // Soal no 5: Add game over audio:
-        const audio = new Audio('./assets/game-over.mp3');
+        const audio = new Audio('./assets/sound/game-over.mp3');
         audio.play();
 
         alert("Game over");
