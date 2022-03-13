@@ -66,6 +66,24 @@ let apples = [{
     }
 ]
 
+let nyawaa = [{
+    color: "red",
+    position: initPosition(),
+},
+{
+    color: "blue",
+    position: initPosition(),
+},
+{
+    color: "purple",
+    position: initPosition(),
+},
+{
+    color: "green",
+    position: initPosition(),
+}
+]
+
 function drawCell(ctx, x, y, color) {
     ctx.fillStyle = color;
     ctx.fillRect(x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
@@ -117,6 +135,13 @@ function draw() {
         }
 
         drawScore(snake1);
+        for (let i = 0; i < nyawaa.length; i++) {
+            let apple = nyawaa[i];
+
+            // Soal no 3: DrawImage apple dan gunakan image id:
+            var img = document.getElementById("nyawa");
+            ctx.drawImage(img, apple.position.x * CELL_SIZE, apple.position.y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+        }
         // Soal no 6: Draw Player 3 Score:
     }, REDRAW_INTERVAL);
 }
@@ -137,10 +162,18 @@ function teleport(snake) {
 }
 
 // Soal no 4: Jadikan apples array
-function eat(snake, apples) {
+function eat(snake, apples, nyawaa) {
     for (let i = 0; i < apples.length; i++) {
         let apple = apples[i];
         if (snake.head.x == apple.position.x && snake.head.y == apple.position.y) {
+            apple.position = initPosition();
+            snake.score++;
+            snake.body.push({ x: snake.head.x, y: snake.head.y });
+        }
+    }
+    for (let i = 0; i < nyawaa.length; i++) {
+        let nyawa = nyawaa[i];
+        if (snake.head.x == nyawa.position.x && snake.head.y == nyawa.position.y) {
             apple.position = initPosition();
             snake.score++;
             snake.body.push({ x: snake.head.x, y: snake.head.y });
@@ -151,25 +184,25 @@ function eat(snake, apples) {
 function moveLeft(snake) {
     snake.head.x--;
     teleport(snake);
-    eat(snake, apples);
+    eat(snake, apples, nyawaa);
 }
 
 function moveRight(snake) {
     snake.head.x++;
     teleport(snake);
-    eat(snake, apples);
+    eat(snake, apples, nyawaa);
 }
 
 function moveDown(snake) {
     snake.head.y++;
     teleport(snake);
-    eat(snake, apples);
+    eat(snake, apples, nyawaa);
 }
 
 function moveUp(snake) {
     snake.head.y--;
     teleport(snake);
-    eat(snake, apples);
+    eat(snake, apples, nyawaa);
 }
 
 function checkCollision(snakes) {
@@ -186,11 +219,10 @@ function checkCollision(snakes) {
     }
     if (isCollide) {
         // Soal no 5: Add game over audio:
-        alert("Game over");
         var audio = new Audio('assets/game-over.mp3');
         audio.play();
+        alert("Game over");
         snake1 = initSnake("green");
-
     }
     return isCollide;
 }
