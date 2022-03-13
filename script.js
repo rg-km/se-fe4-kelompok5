@@ -44,7 +44,7 @@ function initSnake(color) {
     }
 }
 let snake1 = initSnake("green");
-let snake2 = initSnake("red");
+//let snake2 = initSnake("red");
 
 
 // Soal no 4: make apples array
@@ -72,14 +72,6 @@ let nyawaa = [{
 },
 {
     color: "blue",
-    position: initPosition(),
-},
-{
-    color: "purple",
-    position: initPosition(),
-},
-{
-    color: "green",
     position: initPosition(),
 }
 ]
@@ -128,7 +120,6 @@ function draw() {
 
         for (let i = 0; i < apples.length; i++) {
             let apple = apples[i];
-
             // Soal no 3: DrawImage apple dan gunakan image id:
             var img = document.getElementById("apple");
             ctx.drawImage(img, apple.position.x * CELL_SIZE, apple.position.y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
@@ -136,11 +127,11 @@ function draw() {
 
         drawScore(snake1);
         for (let i = 0; i < nyawaa.length; i++) {
-            let apple = nyawaa[i];
+            let nyawa = nyawaa[i];
 
             // Soal no 3: DrawImage apple dan gunakan image id:
             var img = document.getElementById("nyawa");
-            ctx.drawImage(img, apple.position.x * CELL_SIZE, apple.position.y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+            ctx.drawImage(img, nyawa.position.x * CELL_SIZE, nyawa.position.y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
         }
         // Soal no 6: Draw Player 3 Score:
     }, REDRAW_INTERVAL);
@@ -174,7 +165,7 @@ function eat(snake, apples, nyawaa) {
     for (let i = 0; i < nyawaa.length; i++) {
         let nyawa = nyawaa[i];
         if (snake.head.x == nyawa.position.x && snake.head.y == nyawa.position.y) {
-            apple.position = initPosition();
+            nyawa.position = initPosition();
             snake.score++;
             snake.body.push({ x: snake.head.x, y: snake.head.y });
         }
