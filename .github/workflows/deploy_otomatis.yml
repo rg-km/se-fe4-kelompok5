@@ -1,20 +1,17 @@
-name: Deploy to GitHub Pages
+name: Build and Deploy
 on:
-  push:	
-    branches:	
+  push:
+    branches:
       - main
-
 jobs:
-  deploy:
-    name: Deploy to GitHub Pages
-    runs-on: ubuntu-latest    
+  build-and-deploy:
+    concurrency: ci-${{ github.ref }}
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-
-    - name: Deploy
-      uses: s0/git-publish-subdir-action@develop
-      env:
-        REPO: self
-        BRANCH: gh-pages
-        FOLDER: snake-game
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: snake-game # The folder the action should deploy.
