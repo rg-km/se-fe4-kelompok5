@@ -86,6 +86,8 @@ function drawScore(snake) {
     if (snake.score == snake.scoreToNextLevel) {
         snake.scoreToNextLevel += 5;
         snake.level++;
+        const audio = new Audio('assets/sound/level-inc.mpeg');
+        audio.play();
     }
 
     scoreCtx.clearRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
