@@ -1,6 +1,3 @@
-
-
-
 const CELL_SIZE = 20;
 // Soal no 1: Set canvas size menjadi 600
 const CANVAS_SIZE = 600;
@@ -106,7 +103,7 @@ function drawScore(snake) {
     scoreCtx.fillText(snake.score, 140, 350);
 }
 
-function draw() {
+function render() {
     setInterval(function() {
         let snakeCanvas = document.getElementById("snakeBoard");
         let ctx = snakeCanvas.getContext("2d");
@@ -212,7 +209,7 @@ function checkCollision(snakes) {
     }
     if (isCollide) {
         // Soal no 5: Add game over audio:
-        var audio = new Audio('assets/game-over.mp3');
+        var audio = new Audio('assets/sound/game-over.mp3');
         audio.play();
         alert("Game over");
         snake1 = initSnake("green");
@@ -281,3 +278,5 @@ function initGame() {
 }
 
 initGame();
+
+export default render;

@@ -5,26 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Snake Game</title>
-    <link rel="stylesheet" href="./style.css/">
+    <link rel="stylesheet" href="./assets/style/css/style.css">
 </head>
-<body onload="draw()">
+<body>
     <header>
         <h1>Snake Game versi 1.0</h1>
     </header>
     <main>
         <div class="image">
-            <img id="apple" src="assets/apple.png" alt="Apple">
-            <img id="snakeHead" src="assets/snake.png" alt="Snake Head">
-            <img id="snakeTail" src="assets/ekor.png" alt="Snake Tail">
-            <img id="snakeLife" src="assets/love.png" alt="Snake Life">
+            <img id="apple" src="assets/image/apple.png" alt="Apple">
+            <img id="snakeHead" src="assets/image/snake.png" alt="Snake Head">
+            <img id="snakeTail" src="assets/image/ekor.png" alt="Snake Tail">
+            <img id="snakeLife" src="assets/image/love.png" alt="Snake Life">
         </div>
-        <div>
+        <div class="board">
             <canvas id="snakeBoard"></canvas>
             <canvas id="scoreBoard"></canvas>
         </div>
     </main>
     <footer></footer>
-    <script type="text/javascript" src="./setSize.js"></script>
-    <script type="text/javascript" src="./script.js/"></script>
+    <script type="module" src="./app.js"></script>
 </body>
 </html>
