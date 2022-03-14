@@ -1,0 +1,17 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#apple,
+#snakeHead,
+#snakeTail,
+#snakeLife{
+    display: none;
+}
+
+#snakeBoard,
+#scoreBoard{
+    border: 1px solid rgba(0, 0, 0, 1);
+}

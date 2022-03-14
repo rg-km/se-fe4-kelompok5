@@ -8,13 +8,23 @@
     <link rel="stylesheet" href="./style.css/">
 </head>
 <body onload="draw()">
-    <h1>Snake Game versi 1.0</h1>
-        <img id="apple" style="display: none;" width="20" height="20" src="assets/apple.png" alt="Apple">
-        <img id="snake" style="display: none;" width="40" height="40" src="assets/snake.png" alt="Snake">
-        <img id="ekor" style="display: none;" width="40" height="40" src="assets/ekor.png" alt="Ekor">
-        <img id="nyawa" style="display: none;" width="40" height="40" src="assets/love.png" alt="Nyawa">
-        <canvas id="snakeBoard" width="600" height="600" style="border:1px solid #000000;"></canvas>
-        <canvas id="score1Board" width="300" height="600" style="border:1px solid #000000;"></canvas>
-        <script type="text/javascript" src="./script.js/"></script>
+    <header>
+        <h1>Snake Game versi 1.0</h1>
+    </header>
+    <main>
+        <div class="image">
+            <img id="apple" src="assets/apple.png" alt="Apple">
+            <img id="snakeHead" src="assets/snake.png" alt="Snake Head">
+            <img id="snakeTail" src="assets/ekor.png" alt="Snake Tail">
+            <img id="snakeLife" src="assets/love.png" alt="Snake Life">
+        </div>
+        <div>
+            <canvas id="snakeBoard"></canvas>
+            <canvas id="scoreBoard"></canvas>
+        </div>
+    </main>
+    <footer></footer>
+    <script type="text/javascript" src="./setSize.js"></script>
+    <script type="text/javascript" src="./script.js/"></script>
 </body>
 </html>

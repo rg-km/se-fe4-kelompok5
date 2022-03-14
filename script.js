@@ -1,3 +1,6 @@
+
+
+
 const CELL_SIZE = 20;
 // Soal no 1: Set canvas size menjadi 600
 const CANVAS_SIZE = 600;
@@ -85,7 +88,7 @@ function drawCell(ctx, x, y, color) {
 function drawScore(snake) {
     let scoreCanvas;
     if (snake.color == snake1.color) {
-        scoreCanvas = document.getElementById("score1Board");
+        scoreCanvas = document.getElementById("scoreBoard");
     }
     let scoreCtx = scoreCanvas.getContext("2d");
 
@@ -93,7 +96,6 @@ function drawScore(snake) {
         snake.scoreToNextLevel += 5;
         snake.level++;
     }
-    console.log(snake.scoreToNextLevel)
 
     scoreCtx.clearRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
     scoreCtx.font = "30px Times New Roman";
@@ -111,10 +113,10 @@ function draw() {
 
         ctx.clearRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
 
-        var img = document.getElementById("snake");
+        var img = document.getElementById("snakeHead");
         ctx.drawImage(img, snake1.head.x * CELL_SIZE, snake1.head.y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
         for (let i = 1; i < snake1.body.length; i++) {
-            var img = document.getElementById("ekor")
+            var img = document.getElementById("snakeTail")
             ctx.drawImage(img, snake1.body[i].x * CELL_SIZE, snake1.body[i].y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
         }
 
@@ -130,7 +132,7 @@ function draw() {
             let nyawa = nyawaa[i];
 
             // Soal no 3: DrawImage apple dan gunakan image id:
-            var img = document.getElementById("nyawa");
+            var img = document.getElementById("snakeLife");
             ctx.drawImage(img, nyawa.position.x * CELL_SIZE, nyawa.position.y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
         }
         // Soal no 6: Draw Player 3 Score:
