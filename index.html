@@ -1,19 +1,30 @@
-<html>
-    <head>
-    </head>
-        <script type="text/javascript" src="script.js"></script>
-    <body onload="draw();">
-        <h1>Snake Game versi 1.0</h1>
-        <!-- Soal no 3: Tambahkan resource gambar untuk ditampilkan di canvas -->
-        <img id="apple" style="display: none;" width="20" height="20" src="assets/apple.png" alt="Apple">
-        <img id="snake" style="display: none;" width="40" height="40" src="assets/snake.png" alt="Snake">
-        <img id="ekor" style="display: none;" width="40" height="40" src="assets/ekor.png" alt="Ekor">
-        <img id="nyawa" style="display: none;" width="40" height="40" src="assets/love.png" alt="Nyawa">
-        <!-- Soal no 1: Ubah nilai width dan height menjadi 600 pada element canvas:  -->
-        <canvas id="snakeBoard" width="600" height="600" style="border:1px solid #000000;"></canvas>
-        <canvas id="score1Board" width="300" height="600" style="border:1px solid #000000;"></canvas>
-       <!-- <canvas id="score2Board" width="100" height="100" style="border:1px solid #000000;"></canvas>
-        Soal no 6: Tambahkan elemen canvas untuk menampilkan player3:  
-        <canvas id="score3Board" width="100" height="100" style="border:1px solid #000000;"></canvas>-->
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script type="text/javascript" src="/___vscode_livepreview_injected_script"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <link rel="stylesheet" href="./assets/style/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Snake Game versi 1.0 (BETA)</h1>
+    </header>
+    <main>
+        <div class="image">
+            <img id="apple" src="assets/image/apple.png" alt="Apple">
+            <img id="snakeHead" src="assets/image/snake-head.png" alt="Snake Head">
+            <img id="snakeTail" src="assets/image/body.png" alt="Snake Tail">
+            <img id="snakeLife" src="assets/image/love.png" alt="Snake Life">
+        </div>
+        <div class="board">
+            <canvas id="snakeBoard"></canvas>
+            <canvas id="scoreBoard"></canvas>
+        </div>
+    </main>
+    <footer></footer>
+    <script type="module" src="./app.js"></script>
+</body>
 </html>
