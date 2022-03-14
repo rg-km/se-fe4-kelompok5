@@ -11,7 +11,7 @@ const DIRECTION = {
         DOWN: 3,
     }
     // Soal no 2: Pengaturan Speed (semakin kecil semakin cepat) ubah dari 150 ke 120
-const MOVE_INTERVAL = 160;
+let MOVE_INTERVAL = 160;
 
 function initPosition() {
     return {
@@ -63,10 +63,6 @@ let apples = [{
 let nyawaa = [{
     color: "red",
     position: initPosition(),
-},
-{
-    color: "blue",
-    position: initPosition(),
 }
 ]
 
@@ -86,6 +82,7 @@ function drawScore(snake) {
     if (snake.score == snake.scoreToNextLevel) {
         snake.scoreToNextLevel += 5;
         snake.level++;
+        MOVE_INTERVAL -= 10;
         const audio = new Audio('assets/sound/level-inc.mpeg');
         audio.play();
     }
@@ -131,6 +128,8 @@ function render() {
             var img = document.getElementById("snakeLife");
             ctx.drawImage(img, nyawa.position.x * CELL_SIZE, nyawa.position.y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
         }
+
+
         // Soal no 6: Draw Player 3 Score:
     }, REDRAW_INTERVAL);
 }
@@ -157,6 +156,8 @@ function eat(snake, apples, nyawaa) {
         if (snake.head.x == apple.position.x && snake.head.y == apple.position.y) {
             apple.position = initPosition();
             snake.score++;
+            var audio = new Audio('assets/sound/eat.mp3');
+            audio.play();
             snake.body.push({ x: snake.head.x, y: snake.head.y });
         }
     }
@@ -165,6 +166,8 @@ function eat(snake, apples, nyawaa) {
         if (snake.head.x == nyawa.position.x && snake.head.y == nyawa.position.y) {
             nyawa.position = initPosition();
             snake.score++;
+            var audio = new Audio('assets/sound/eat.mp3');
+            audio.play();
             snake.body.push({ x: snake.head.x, y: snake.head.y });
         }
     }
@@ -210,7 +213,6 @@ function checkCollision(snakes) {
         // Soal no 5: Add game over audio:
         var audio = new Audio('assets/sound/game-over.mp3');
         audio.play();
-        alert("Game over");
         snake1 = initSnake("green");
     }
     return isCollide;
