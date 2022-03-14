@@ -43,6 +43,8 @@ function initSnake(color) {
         scoreToNextLevel: 5
     }
 }
+
+
 let snake1 = initSnake("gold");
 //let snake2 = initSnake("red");
 
@@ -53,18 +55,10 @@ let apples = [{
         position: initPosition(),
     },
     {
-        color: "blue",
-        position: initPosition(),
-    },
-    {
-        color: "purple",
-        position: initPosition(),
-    },
-    {
-        color: "green",
+        color: "red",
         position: initPosition(),
     }
-]
+];
 
 let nyawaa = [{
     color: "red",
@@ -96,6 +90,7 @@ function drawScore(snake) {
 
     scoreCtx.clearRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
     scoreCtx.font = "30px Times New Roman";
+    
     scoreCtx.fillStyle = snake.color
     scoreCtx.fillText("Level", 110, 50);
     scoreCtx.fillText(snake.level, 140, 100);
@@ -112,9 +107,11 @@ function render() {
 
         var img = document.getElementById("snakeHead");
         ctx.drawImage(img, snake1.head.x * CELL_SIZE, snake1.head.y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+        
         for (let i = 1; i < snake1.body.length; i++) {
             var img = document.getElementById("snakeTail")
             ctx.drawImage(img, snake1.body[i].x * CELL_SIZE, snake1.body[i].y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+
         }
 
         for (let i = 0; i < apples.length; i++) {
