@@ -43,7 +43,7 @@ function initSnake(color) {
         scoreToNextLevel: 5
     }
 }
-let snake1 = initSnake("green");
+let snake1 = initSnake("gold");
 //let snake2 = initSnake("red");
 
 
